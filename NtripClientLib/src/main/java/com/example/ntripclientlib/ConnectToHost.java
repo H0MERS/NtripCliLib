@@ -13,15 +13,15 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class ConnectToHost {
-    private static String _host;
-    private static int _port;
-    private static String _username;
-    private static String _password;
-    private static PrintWriter output;
-    private static BufferedReader input;
-    private static InputStream inputStream;
-    private static String TAG = "ConnectToServerSocket";
-    private static Context _context;
+    private String _host;
+    private int _port;
+    private String _username;
+    private String _password;
+    private PrintWriter output;
+    private BufferedReader input;
+    private InputStream inputStream;
+    private String TAG = "ConnectToServerSocket";
+    private Context _context;
     public ConnectToHost(Context c, String host, int port, String username, String password)
     {
 
@@ -32,19 +32,19 @@ public class ConnectToHost {
         _password = password;
     }
 
-    public static PrintWriter GetPrinterOutput()
+    public PrintWriter GetPrinterOutput()
     {
         return output;
     }
-    public static BufferedReader GetBufferedRInput(){
+    public BufferedReader GetBufferedRInput(){
         return input;
     }
 
-    public static InputStream GetInputStream(){
+    public InputStream GetInputStream(){
         return inputStream;
     }
 
-    public static void Connect() {
+    public void Connect() {
         Socket socket;
         try {
             socket = new Socket(_host, _port);

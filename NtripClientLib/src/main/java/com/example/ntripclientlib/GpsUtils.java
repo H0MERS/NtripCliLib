@@ -4,11 +4,11 @@ import android.text.TextUtils;
 
 public class GpsUtils {
 
-    public static Double Latitude = 0.00;
-    public static Double Longitude = 0.00;
-    public static String Status = "NA";
+    public Double Latitude = 0.00;
+    public Double Longitude = 0.00;
+    public String Status = "NA";
 
-    private static double ParseToDecimal(String data, String direction){
+    private double ParseToDecimal(String data, String direction){
         double latLon = Double.parseDouble(data) / 100d;
         double latLonMins = latLon % 1d;
         latLon = latLon - latLonMins;
@@ -18,7 +18,7 @@ public class GpsUtils {
             result = -1 * result;
         return result;
     }
-    public static void ProcessData(String code)
+    public void ProcessData(String code)
     {
         if(!code.contains("RMC")) return;
 

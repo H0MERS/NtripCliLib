@@ -6,8 +6,8 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 
 public class WriteMessageToServer  {
-    private static PrintWriter _output;
-    private static Context _context;
+    private PrintWriter _output;
+    private Context _context;
     public WriteMessageToServer(Context context,
                                 PrintWriter output)
     {
@@ -15,7 +15,7 @@ public class WriteMessageToServer  {
         _output = output;
     }
 
-    public static void Send(String message)
+    public void Send(String message)
     {
         _output.write(message);
         _output.flush();
