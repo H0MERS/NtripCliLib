@@ -2,13 +2,13 @@ package com.example.ntripclientlib;
 
 import android.text.TextUtils;
 
-public class Gps {
+public class GpsUtils {
 
-    public Double Latitude = 0.00;
-    public Double Longitude = 0.00;
-    public String Status = "NA";
+    public static Double Latitude = 0.00;
+    public static Double Longitude = 0.00;
+    public static String Status = "NA";
 
-    private double ParseToDecimal(String data, String direction){
+    private static double ParseToDecimal(String data, String direction){
         double latLon = Double.parseDouble(data) / 100d;
         double latLonMins = latLon % 1d;
         latLon = latLon - latLonMins;
@@ -18,7 +18,7 @@ public class Gps {
             result = -1 * result;
         return result;
     }
-    public void ProcessData(String code)
+    public static void ProcessData(String code)
     {
         if(!code.contains("RMC")) return;
 

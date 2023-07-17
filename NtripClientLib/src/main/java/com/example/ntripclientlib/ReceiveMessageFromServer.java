@@ -11,15 +11,15 @@ import java.util.Locale;
 
 public class ReceiveMessageFromServer {
 
-    private String TAG = "ReceiveMessageFromServer";
-    private Context _context;
-    private InputStream _inputStream;
+    private static String TAG = "ReceiveMessageFromServer";
+    private static Context _context;
+    private static InputStream _inputStream;
     public ReceiveMessageFromServer(Context c, InputStream inputStream)
     {
         _context = c;
         _inputStream = inputStream;
     }
-    public byte[] Read(){
+    public static byte[] Read(){
         try {
 
             byte[] dta = new byte[16384];
