@@ -29,7 +29,7 @@ public class ReceiveMessageFromServer implements Runnable{
     @Override
     public void run() {
         try {
-
+            while(true) {
                 byte[] dta = new byte[16384];
                 int dRead = _inputStream.read(dta,0, dta.length);
                 if(dRead != -1) {
@@ -45,12 +45,13 @@ public class ReceiveMessageFromServer implements Runnable{
                                 baseStations.add(bStationInf[1]);
                             }
                         }
-                        ModelSourceTable m = new ModelSourceTable();
+                        ReceiveCallbackData m = new ModelSourceTable();
                         m.Data = baseStations;
                         _callbackFunc.callback(m);
                     }else if(d.toLowerCase(Locale.ROOT).contains("icy 200 ok")){
                         ModelConnectivityStatus m = new ModelConnectivityStatus();
                         m.Data = "ICY 200 OK";
+                        m.IsConnectedToBaseStation = true;
                         _callbackFunc.callback(m);
                     }else {
                         ModelCorrectionData m = new ModelCorrectionData();
@@ -58,7 +59,7 @@ public class ReceiveMessageFromServer implements Runnable{
                         _callbackFunc.callback(m);
                     }
                 }
-
+            }
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(_context,"Error: " + e.getMessage(), Toast.LENGTH_LONG);
