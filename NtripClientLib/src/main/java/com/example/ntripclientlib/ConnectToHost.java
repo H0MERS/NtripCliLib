@@ -44,7 +44,12 @@ public class ConnectToHost {
         return inputStream;
     }
 
-    public void Connect() {
+    public void GetBaseTations()
+    {
+        ConnectTo("");
+    }
+
+    public void ConnectTo(String baseStation) {
         Socket socket;
         try {
             socket = new Socket(_host, _port);
@@ -54,7 +59,7 @@ public class ConnectToHost {
             input = new BufferedReader(new InputStreamReader(inputStream));
 
             // Build request message
-            String msg = "GET / HTTP/1.0\r\n";
+            String msg = "GET /" + baseStation + " HTTP/1.0\r\n";
             msg += "User-Agent: NTRIP client\r\n";
             msg += "Accept: */*\r\nConnection: close\r\n";
 
