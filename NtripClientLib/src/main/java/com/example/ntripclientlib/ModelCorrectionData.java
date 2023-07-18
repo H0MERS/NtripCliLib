@@ -1,5 +1,5 @@
 package com.example.ntripclientlib;
 
-public class ModelCorrectionData implements ReceiveCallbackData {
+public class ModelCorrectionData extends ReceiveCallbackData {
 
 }

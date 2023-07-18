@@ -1,5 +1,5 @@
 package com.example.ntripclientlib;
 
-public class ModelConnectivityStatus implements ReceiveCallbackData {
+public class ModelConnectivityStatus extends ReceiveCallbackData {
 
 }
