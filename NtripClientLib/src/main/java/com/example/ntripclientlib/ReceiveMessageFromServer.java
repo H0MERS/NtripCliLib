@@ -47,16 +47,17 @@ public class ReceiveMessageFromServer implements Runnable{
                         }
                         IReceiveCallbackData m = new ModelSourceTable();
                         m.setData(baseStations);
+                        m.setStatus(1);
                         _callbackFunc.callback(m);
                     }else if(d.toLowerCase(Locale.ROOT).contains("icy 200 ok")){
                         IReceiveCallbackData m = new ModelConnectivityStatus();
                         m.setData("ICY 200 OK");
-                        m.setBaseStationIsconnected(true);
+                        m.setStatus(2);
                         _callbackFunc.callback(m);
                     }else {
                         IReceiveCallbackData m = new ModelCorrectionData();
                         m.setData(dta);
-                        m.setBaseStationIsconnected(true);
+                        m.setStatus(0);
                         _callbackFunc.callback(m);
                     }
                 }

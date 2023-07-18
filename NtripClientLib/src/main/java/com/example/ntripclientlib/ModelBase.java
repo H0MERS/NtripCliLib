@@ -2,7 +2,7 @@ package com.example.ntripclientlib;
 
 public class ModelBase {
     private Object _data;
-    private boolean _isConnectedToBaseStation;
+    private int _status;
 
 
     public Object getData() {
@@ -15,12 +15,12 @@ public class ModelBase {
     }
 
 
-    public boolean getBaseStationIsConnected() {
-        return _isConnectedToBaseStation;
+    public int getStatus() {
+        return _status;
     }
 
 
-    public void setBaseStationIsconnected(boolean input) {
-        _isConnectedToBaseStation = input;
+    public void setStatus(int input) {
+        _status = input;
     }
 }
