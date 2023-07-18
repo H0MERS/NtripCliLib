@@ -49,12 +49,12 @@ public class ReceiveMessageFromServer implements Runnable{
                         m.Data = baseStations;
                         _callbackFunc.callback(m);
                     }else if(d.toLowerCase(Locale.ROOT).contains("icy 200 ok")){
-                        ModelConnectivityStatus m = new ModelConnectivityStatus();
+                        ReceiveCallbackData m = new ModelConnectivityStatus();
                         m.Data = "ICY 200 OK";
                         m.IsConnectedToBaseStation = true;
                         _callbackFunc.callback(m);
                     }else {
-                        ModelCorrectionData m = new ModelCorrectionData();
+                        ReceiveCallbackData m = new ModelCorrectionData();
                         m.Data = dta;
                         _callbackFunc.callback(m);
                     }
