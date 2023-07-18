@@ -29,7 +29,7 @@ public class ReceiveMessageFromServer implements Runnable{
     @Override
     public void run() {
         try {
-            while(true) {
+
                 byte[] dta = new byte[16384];
                 int dRead = _inputStream.read(dta,0, dta.length);
                 if(dRead != -1) {
@@ -58,7 +58,7 @@ public class ReceiveMessageFromServer implements Runnable{
                         _callbackFunc.callback(m);
                     }
                 }
-            }
+
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(_context,"Error: " + e.getMessage(), Toast.LENGTH_LONG);
